@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.2",
-    "nuxt": "^1.4.2",
+    "nuxt": "latest",
     "vue-server-renderer": "latest",
-    "vuetify": "^0.14.11"
+    "vuetify": "latest"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",

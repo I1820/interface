@@ -1,9 +1,9 @@
 <template>
   <v-layout column justify-center align-center>
+    <v-flex>
+      <h2 class="white--text display-2">Things @ {{projectID}}</h2>
+    </v-flex>
     <v-flex class="xs12 sm8 md6 pt-4">
-      <div>
-        <h2 class="white--text display-2">Things @ {{projectID}}</h2>
-      </div>
       <i-thing v-for="(thing, i) in things" :key="i" :thing="thing" :project="projectID"></i-thing>
     </v-flex>
   </v-layout>

@@ -8,8 +8,8 @@
         <v-card-text>
           <p>Welcome to the I1820 IoT Platform</p>
           <p>
-            Bamboo IoT Platform which was written by Bambil Corporation is a <strong>first</strong>
-            microservice architectural IoT Platform in Iran. Hope you enjoy ...
+            This platform is written by many people that many of them do not live with us right now.
+            I want to thank all of them and hope you enjoy this platform.
           </p>
           <div class="orange--text">
             <strong>Good Days Good Things</strong>
@@ -24,8 +24,7 @@
       <div>
         <h2 class="white--text display-2">Projects</h2>
       </div>
-      <i-project v-for="(project, i) in projects" :key="i" :project="project">
-      </i-project>
+      <i-project v-for="(project, i) in projects" :key="i" :project="project"></i-project>
     </v-flex>
   </v-layout>
 </template>
@@ -37,10 +36,10 @@ export default {
     'i-project': IProject
   },
 
-  async asyncData({app}) {
+  async asyncData ({app}) {
     let projects = []
     try {
-      projects = await app.$axios.$get("http://192.168.73.5:8080/api/projects")
+      projects = await app.$axios.$get('http://192.168.73.5:1375/api/projects')
       console.log(projects)
     } catch (e) {
       console.log(e)

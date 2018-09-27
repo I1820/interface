@@ -17,7 +17,7 @@
     </v-layout>
     <v-divider light></v-divider>
     <v-card-actions>
-      <v-btn class="flat orange" :to="show(project.id)">Details</v-btn>
+      <v-btn class="flat orange" :to="show(project.id)">Things</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -31,7 +31,10 @@ export default {
   },
 
   props: {
-    project: Object
+    project: { // project itself
+			type: Object,
+			required: true
+		}
   }
 }
 </script>

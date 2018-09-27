@@ -1,9 +1,10 @@
 <template>
-  <v-app dark toolbar footer>
+  <v-app dark>
     <v-navigation-drawer
-      persistent
-      temporary
       v-model="drawer"
+      clipped
+      fixed
+     	app
     >
       <v-list>
         <v-list-tile
@@ -21,18 +22,20 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar fixed>
+    <v-toolbar app fixed clipped-left>
       <v-toolbar-title>
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
         <span class="white--text">{{title}}</span>
       </v-toolbar-title>
     </v-toolbar>
     <main>
-      <v-container fluid>
-        <nuxt />
-      </v-container>
+			<v-content>
+      	<v-container fluid fill-height>
+        	<nuxt />
+      	</v-container>
+			</v-content>
     </main>
-    <v-footer>
+    <v-footer app fixed>
       <span>&copy; I1820 since 2016</span>
     </v-footer>
   </v-app>

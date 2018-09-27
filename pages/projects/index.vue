@@ -65,7 +65,7 @@ export default {
   },
 
   data: () => ({
-    dialog: false, // create project dialog
+    dialog: false, // create project dialog visibility
 
     name: '', // name field in create project
     owner: '' // owner field in create project

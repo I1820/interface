@@ -25,7 +25,7 @@
     <v-toolbar app fixed clipped-left>
       <v-toolbar-title>
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <span class="white--text">{{title}}</span>
+        <span>{{title}}</span>
       </v-toolbar-title>
     </v-toolbar>
     <main>
@@ -51,7 +51,13 @@
             icon: 'apps',
             title: 'Dashboard',
             link: '/dashboard'
+          },
+          {
+            icon: 'mood',
+            title: 'Projects',
+            link: '/projects'
           }
+
         ],
         title: 'I1820 IoT Platform'
       }

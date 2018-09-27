@@ -34,11 +34,14 @@ module.exports = {
   /*
   ** Plugin configuration
   */
-  plugins: ['~plugins/vuetify.js'],
+  plugins: [
+    '~plugins/vuetify.js',
+    '~plugins/moment'
+  ],
   css: [
     { src: '~assets/style/app.styl', lang: 'styl' }
   ],
   modules: [
-    ['@nuxtjs/axios']
+    ['@nuxtjs/axios', '@nuxtjs/moment']
   ]
 }

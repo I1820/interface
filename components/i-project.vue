@@ -32,9 +32,9 @@ export default {
 
   props: {
     project: { // project itself
-			type: Object,
-			required: true
-		}
+      type: Object,
+      required: true
+    }
   }
 }
 </script>

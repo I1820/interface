@@ -1,15 +1,23 @@
 <template>
   <v-card>
-    <v-card-text>
-      <h5 class="yellow--text headline">{{project.name}}</h5>
-      <ul>
-        <li v-for="(thing, i) in project.things" :key="i">
-          <strong>{{thing.id}}</strong> with <em>{{thing.model}}</em> model
-        </li>
-      </ul>
-    </v-card-text>
+    <v-layout row align-center justify-center>
+      <v-flex>
+        <v-avatar color="red">
+          <span class="white--text headline">{{project.name.slice(0,2).toUpperCase()}}</span>
+        </v-avatar>
+      </v-flex>
+      <v-flex>
+        <v-card-title primary-title>
+          <div>
+            <span class="headline">Name: <i>{{project.name}}</i></span><br>
+            <span class="headline grey--text">ID: <i>{{project.id}}</i></span>
+          </div>
+        </v-card-title>
+      </v-flex>
+    </v-layout>
+    <v-divider light></v-divider>
     <v-card-actions>
-      <v-btn class="flat orange">Details</v-btn>
+      <v-btn class="flat orange" :to="show(project.id)">Details</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -17,8 +25,8 @@
 <script>
 export default {
   methods: {
-    show (name) {
-      return `/projects/{id}`
+    show (id) {
+      return `/projects/${id}/show`
     }
   },
 

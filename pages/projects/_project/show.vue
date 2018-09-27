@@ -11,7 +11,7 @@
         <v-btn slot="activator" color="primary" dark>Create Thing</v-btn>
         <v-card>
           <v-card-title>
-            <span class="headline">Project</span>
+            <span class="headline">Thing</span>
           </v-card-title>
           <v-card-text>
             <v-container grid-list-md>

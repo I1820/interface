@@ -24,6 +24,16 @@ module.exports = {
   build: {
     vendor: ['vuetify']
   },
+  /*
+  ** Server configuration?!
+  */
+  server: {
+    port: 1820,
+    host: '0.0.0.0'
+  },
+  /*
+  ** Plugin configuration
+  */
   plugins: ['~plugins/vuetify.js'],
   css: [
     { src: '~assets/style/app.styl', lang: 'styl' }

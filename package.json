@@ -23,6 +23,7 @@
     "nuxt": "latest",
     "vue-moment": "^4.0.0",
     "vue-server-renderer": "latest",
+    "vue-toasted": "^1.1.24",
     "vuetify": "latest"
   },
   "devDependencies": {

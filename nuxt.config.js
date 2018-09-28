@@ -25,23 +25,25 @@ module.exports = {
     vendor: ['vuetify']
   },
   /*
-  ** Envs
+  ** Nuxt modules configuration
   */
-  env: {
-  },
+  modules: [
+    '@nuxtjs/axios'
+  ],
   /*
   ** Plugin configuration
   */
   plugins: [
     '~plugins/vuetify.js',
-    '~plugins/moment'
+    '~plugins/moment.js',
+    { src: '~plugins/toast.js', ssr: false }
   ],
   css: [
     { src: '~assets/style/app.styl', lang: 'styl' }
   ],
-  modules: [
-    ['@nuxtjs/axios']
-  ],
+  toast: {
+    position: 'top-center'
+  },
   axios: {
     proxy: true // enable axios proxy module
   },

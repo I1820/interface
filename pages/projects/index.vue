@@ -45,9 +45,8 @@ export default {
     async refresh () {
       try {
         this.projects = await this.$axios.$get('/pm/api/projects')
-        console.log(this.projects)
       } catch (e) {
-        console.log(e)
+        this.$toast.global.iError({message: `${e.response.data.code}: ${e.response.data.error.split('\n')[0]}`})
       }
     },
     async create () {
@@ -56,8 +55,9 @@ export default {
           'name': this.name,
           'owner': this.owner
         })
+        this.$toast.global.iSuccess({message: 'Successfully builded'})
       } catch (e) {
-        console.log(e)
+        this.$toast.global.iError({message: `${e.response.data.code}: ${e.response.data.error.split('\n')[0]}`})
       }
       await this.refresh()
       this.dialog = false

@@ -37,7 +37,7 @@ module.exports = {
   env: {
     pmURL: process.env.PM_URL || 'http://127.0.0.1:1375',
     dmURL: process.env.DM_URL || 'http://127.0.0.1:1373'
-  }
+  },
   /*
   ** Plugin configuration
   */

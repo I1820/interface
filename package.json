@@ -5,6 +5,12 @@
   "author": "Parham Alvani <parham.alvani@gmail.com>",
   "repository": "github:I1820/webpanel",
   "license": "GPL-3.0-or-later",
+  "config": {
+    "nuxt": {
+      "host": "0.0.0.0",
+      "port": "1820"
+    }
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",

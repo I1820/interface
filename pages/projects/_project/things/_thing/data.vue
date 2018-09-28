@@ -6,7 +6,7 @@
     <v-flex>
       <template v-for="(info, name) in assets">
         <v-subheader inset>{{name}} a.k.a {{info.title}}</v-subheader>
-        <v-btn :key="`${name}-btn`" @click="recently(name)">Fetch {{info.title}}</v-btn>
+        <v-btn color="orange" :key="`${name}-btn`" @click="recently(name)">Fetch {{info.title}}</v-btn>
         <v-data-table
           :key="`${name}-data-table`"
           :headers="headers"

@@ -35,8 +35,6 @@ module.exports = {
   ** Envs
   */
   env: {
-    pmURL: process.env.PM_URL || 'http://127.0.0.1:1375',
-    dmURL: process.env.DM_URL || 'http://127.0.0.1:1373'
   },
   /*
   ** Plugin configuration
@@ -56,7 +54,7 @@ module.exports = {
   },
 
   proxy: {
-    '/dm/': { target: process.env.dmURL, pathRewrite: {'^/dm/': ''} }, // sends requests with /dm/ to dm component
-    '/pm/': { target: process.env.pmURL, pathRewrite: {'^/pm/': ''} }  // sends requests with /pm/ to pm component
+    '/dm/': { target: process.env.DM_URL || 'http://127.0.0.1:1373', pathRewrite: {'^/dm/': ''} }, // sends requests with /dm/ to dm component
+    '/pm/': { target: process.env.PM_URL || 'http://127.0.0.1:1375', pathRewrite: {'^/pm/': ''} }  // sends requests with /pm/ to pm component
   }
 }

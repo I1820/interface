@@ -105,7 +105,7 @@ export default {
 
     async refresh () {
       try {
-        this.thing = await this.$axios.$get(`http://192.168.73.5:1375/api/projects/${this.project}/things/${this.thing.id}`)
+        this.thing = await this.$axios.$get(`/pm/api/projects/${this.project}/things/${this.thing.id}`)
         console.log(this.thing)
       } catch (e) {
         console.log(e)
@@ -114,7 +114,7 @@ export default {
 
     async assetCreate () {
       try {
-        await this.$axios.$post(`http://192.168.73.5:1375/api/things/${this.thing.id}/assets`, {
+        await this.$axios.$post(`/pm/api/things/${this.thing.id}/assets`, {
           'name': this.assetName,
           'title': this.assetTitle,
           'kind': this.assetKind,

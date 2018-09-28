@@ -39,11 +39,11 @@ export default {
   methods: {
     async recently (assetName) {
       try {
-        this.$set(this.states, assetName, await this.$axios.$get(`http://192.168.73.5:1373/api/projects/${this.projectID}/things/${this.thingID}/assets/${assetName}/queries/recently?limit=10`))
+        this.$set(this.states, assetName, await this.$axios.$get(`dm/api/projects/${this.projectID}/things/${this.thingID}/assets/${assetName}/queries/recently?limit=10`))
+        this.$toast.global.iSuccess({message: 'Successfully fetched'})
       } catch (e) {
-        console.log(e)
+        this.$toast.global.iError({message: `${e.response.data.code}: ${e.response.data.error.split('\n')[0]}`})
       }
-      console.log(this.states[assetName])
     }
   },
 
@@ -68,7 +68,7 @@ export default {
     var thingID = params.thing
     var assets = []
     try {
-      assets = await app.$axios.$get(`http://192.168.73.5:1375/api/things/${thingID}/assets`)
+      assets = await app.$axios.$get(`pm/api/things/${thingID}/assets`)
       console.log(assets)
     } catch (e) {
       console.log(e)

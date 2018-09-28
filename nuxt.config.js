@@ -56,7 +56,7 @@ module.exports = {
   },
 
   proxy: {
-    '/dm/': { target: dmURL, pathRewrite: {'^/dm/': ''} }, // sends requests with /dm/ to dm component
-    '/pm/': { target: pmURL, pathRewrite: {'^/pm/': ''} }  // sends requests with /pm/ to pm component
+    '/dm/': { target: process.env.dmURL, pathRewrite: {'^/dm/': ''} }, // sends requests with /dm/ to dm component
+    '/pm/': { target: process.env.pmURL, pathRewrite: {'^/pm/': ''} }  // sends requests with /pm/ to pm component
   }
 }

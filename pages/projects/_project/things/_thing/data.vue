@@ -47,26 +47,9 @@ export default {
     }
   },
 
-  computed: {
-    rows: {
-      get () {
-        return this.states
-      }
-    }
-  },
-
-  async asyncData ({app, params}) {
-    var projectID = params.project
-    var thingID = params.thing
-    var assets = []
-    var states = {}
-    try {
-      assets = await app.$axios.$get(`http://192.168.73.5:1375/api/things/${thingID}/assets`)
-      console.log(assets)
-    } catch (e) {
-      console.log(e)
-    }
-    var headers = [
+  data: () => ({
+    states: {},
+    headers: [
       {
         text: 'Value',
         value: 'raw',
@@ -78,7 +61,19 @@ export default {
         sortable: true
       }
     ]
-    return {projectID, thingID, assets, states, headers}
+  }),
+
+  async asyncData ({app, params}) {
+    var projectID = params.project
+    var thingID = params.thing
+    var assets = []
+    try {
+      assets = await app.$axios.$get(`http://192.168.73.5:1375/api/things/${thingID}/assets`)
+      console.log(assets)
+    } catch (e) {
+      console.log(e)
+    }
+    return {projectID, thingID, assets}
   }
 }
 </script>

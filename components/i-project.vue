@@ -18,6 +18,7 @@
     <v-divider light></v-divider>
     <v-card-actions>
       <v-btn class="flat orange" :to="show(project.id)">Things</v-btn>
+      <v-btn class="flat red" @click="remove">Remove</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -27,6 +28,14 @@ export default {
   methods: {
     show (id) {
       return `/projects/${id}/show`
+    },
+    async remove () {
+      try {
+        await this.$axios.$delete(`/pm/api/projects/${this.project.id}`)
+      } catch (e) {
+        console.log(e)
+      }
+      // TODO refresh parent after component remvoe
     }
   },
 

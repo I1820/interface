@@ -32,6 +32,13 @@ module.exports = {
     host: '0.0.0.0'
   },
   /*
+  ** Envs
+  */
+  env: {
+    pmURL: process.env.PM_URL || 'http://127.0.0.1:1375',
+    dmURL: process.env.DM_URL || 'http://127.0.0.1:1373'
+  }
+  /*
   ** Plugin configuration
   */
   plugins: [
@@ -42,6 +49,14 @@ module.exports = {
     { src: '~assets/style/app.styl', lang: 'styl' }
   ],
   modules: [
-    ['@nuxtjs/axios', '@nuxtjs/moment']
-  ]
+    ['@nuxtjs/axios']
+  ],
+  axios: {
+    proxy: true // enable axios proxy module
+  },
+
+  proxy: {
+    '/dm/': { target: dmURL, pathRewrite: {'^/dm/': ''} }, // sends requests with /dm/ to dm component
+    '/pm/': { target: pmURL, pathRewrite: {'^/pm/': ''} }  // sends requests with /pm/ to pm component
+  }
 }

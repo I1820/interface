@@ -47,7 +47,51 @@
       </v-list>
     </v-card-text>
     <v-card-actions>
-      <v-btn class="flat orange" :to="data(thing.id, project)">Data</v-btn>
+      <v-btn class="flat orange" :to="data()">Data</v-btn>
+      <v-dialog v-model="assetDialog" persistent max-width="500px">
+        <v-btn slot="activator" color="green" dark>Create Asset</v-btn>
+        <v-card>
+          <v-card-title>
+            <span class="headline">Asset</span>
+          </v-card-title>
+          <v-card-text>
+            <v-container grid-list-md>
+              <v-layout column>
+                <v-flex xs12 sm6 md4>
+                  <v-text-field v-model="assetName" label="Name" hint="name of asset in uplink/downlink data" required></v-text-field>
+                </v-flex>
+                <v-flex xs12 sm6 md4>
+                  <v-text-field v-model="assetTitle" label="Title" hint="human readable name of asset" required></v-text-field>
+                </v-flex>
+                <v-flex xs12 sm6>
+                  <v-select
+                    :items="['sensor', 'actuator']"
+                    label="Kind"
+                    v-model="assetKind"
+                    hint="kind of asset"
+                    required
+                  ></v-select>
+                </v-flex>
+                <v-flex xs12 sm6>
+                  <v-select
+                    :items="['number', 'string', 'object', 'array', 'boolean']"
+                    label="Type"
+                    v-model="assetType"
+                    hint="asset data type"
+                    required
+                  ></v-select>
+                </v-flex>
+              </v-layout>
+            </v-container>
+            <small>*indicates required field</small>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="blue darken-1" flat @click.native="assetDialog = false">Close</v-btn>
+            <v-btn color="blue darken-1" flat @click.native="assetCreate">Create</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-card-actions>
   </v-card>
 </template>
@@ -55,10 +99,42 @@
 <script>
 export default {
   methods: {
-    data (thingID, projectID) {
-      return `/projects/${projectID}/things/${thingID}/data`
+    data () {
+      return `/projects/${this.project}/things/${this.thing.id}/data`
+    },
+
+    async refresh () {
+      try {
+        this.thing = await this.$axios.$get(`http://192.168.73.5:1375/api/projects/${this.project}/things/${this.thing.id}`)
+        console.log(this.thing)
+      } catch (e) {
+        console.log(e)
+      }
+    },
+
+    async assetCreate () {
+      try {
+        await this.$axios.$post(`http://192.168.73.5:1375/api/things/${this.thing.id}/assets`, {
+          'name': this.assetName,
+          'title': this.assetTitle,
+          'kind': this.assetKind,
+          'type': this.assetType
+        })
+      } catch (e) {
+        console.log(e)
+      }
+      await this.refresh()
+      this.assetDialog = false
     }
   },
+  data: () => ({
+    assetDialog: false,
+    assetName: '',
+    assetTitle: '',
+    assetKind: '',
+    assetType: ''
+  }),
+
   props: {
     thing: { // thing itself
       type: Object,

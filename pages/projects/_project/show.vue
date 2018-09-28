@@ -45,7 +45,7 @@ export default {
   methods: {
     async refresh () {
       try {
-        this.things = await this.$axios.$get(`http://192.168.73.5:1375/api/projects/${this.projectID}/things`)
+        this.things = await this.$axios.$get(`/pm/api/projects/${this.projectID}/things`)
         console.log(this.things)
       } catch (e) {
         console.log(e)
@@ -53,7 +53,7 @@ export default {
     },
     async create () {
       try {
-        await this.$axios.$post(`http://192.168.73.5:1375/api/projects/${this.projectID}/things`, {
+        await this.$axios.$post(`/pm/api/projects/${this.projectID}/things`, {
           'name': this.name,
           'model': 'default'
         })
@@ -75,7 +75,7 @@ export default {
     let projectID = params.project
     let things = []
     try {
-      things = await app.$axios.$get(`http://192.168.73.5:1375/api/projects/${projectID}/things`)
+      things = await app.$axios.$get(`/pm/api/projects/${projectID}/things`)
       console.log(things)
     } catch (e) {
       console.log(e)

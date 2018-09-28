@@ -44,7 +44,7 @@ export default {
   methods: {
     async refresh () {
       try {
-        this.projects = await this.$axios.$get('http://192.168.73.5:1375/api/projects')
+        this.projects = await this.$axios.$get('/pm/api/projects')
         console.log(this.projects)
       } catch (e) {
         console.log(e)
@@ -52,7 +52,7 @@ export default {
     },
     async create () {
       try {
-        await this.$axios.$post('http://192.168.73.5:1375/api/projects', {
+        await this.$axios.$post('/pm/api/projects', {
           'name': this.name,
           'owner': this.owner
         })
@@ -74,7 +74,7 @@ export default {
   async asyncData ({app}) {
     let projects = []
     try {
-      projects = await app.$axios.$get('http://192.168.73.5:1375/api/projects')
+      projects = await app.$axios.$get('/pm/api/projects')
       console.log(projects)
     } catch (e) {
       console.log(e)

@@ -25,13 +25,6 @@ module.exports = {
     vendor: ['vuetify']
   },
   /*
-  ** Server configuration?!
-  */
-  server: {
-    port: 1820,
-    host: '0.0.0.0'
-  },
-  /*
   ** Envs
   */
   env: {

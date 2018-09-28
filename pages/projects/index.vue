@@ -5,7 +5,7 @@
     </v-flex>
     <v-flex>
       <v-dialog v-model="dialog" persistent max-width="500px">
-        <v-btn slot="activator" color="primary" dark>Create Project</v-btn>
+        <v-btn slot="activator" color="primary" dark><v-icon>add</v-icon></v-btn>
         <v-card>
           <v-card-title>
             <span class="headline">Project</span>

@@ -1,9 +1,9 @@
 <template>
-  <v-card>
+  <v-card class="ma-5">
     <v-card-title>
       <div>
-        <span class="headline">Name: <i>{{thing.name}}</i></span><br>
-        <span class="headline grey--text">ID: <i>{{thing.id}}</i></span>
+        <h3 class="headline"><i>{{thing.name}}</i></h3>
+        <div class="grey--text">ID: <i>{{thing.id}}</i></div>
       </div>
     </v-card-title>
     <v-card-text>
@@ -50,9 +50,9 @@
       </v-list>
     </v-card-text>
     <v-card-actions>
-      <v-btn class="flat orange" :to="data()">Data</v-btn>
+      <v-btn flat color="orange" :to="data()">Data</v-btn>
       <v-dialog v-model="assetDialog" persistent max-width="500px">
-        <v-btn slot="activator" color="green" dark>Create Asset</v-btn>
+        <v-btn slot="activator" color="green" flat dark>Create Asset</v-btn>
         <v-card>
           <v-card-title>
             <span class="headline">Asset</span>

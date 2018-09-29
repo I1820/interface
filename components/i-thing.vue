@@ -51,6 +51,7 @@
     </v-card-text>
     <v-card-actions>
       <v-btn flat color="orange" :to="data()">Data</v-btn>
+      <v-btn flat color="orange" :to="chart()">Chart</v-btn>
       <v-dialog v-model="assetDialog" persistent max-width="500px">
         <v-btn slot="activator" color="green" flat dark>Create Asset</v-btn>
         <v-card>
@@ -104,6 +105,10 @@ export default {
   methods: {
     data () {
       return `/projects/${this.project}/things/${this.thing.id}/data`
+    },
+
+    chart () {
+      return `/projects/${this.project}/things/${this.thing.id}/chart`
     },
 
     async refresh () {

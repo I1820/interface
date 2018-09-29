@@ -8,6 +8,7 @@
       >
       <v-list>
         <v-list-tile
+          active-class="orange--text"
           v-for="(item, i) in items"
           :key="i"
           :to="item.link"

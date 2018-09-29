@@ -1,30 +1,23 @@
 <template>
-  <v-card class="ma-5">
-   <v-card-title primary-title>
-     <v-layout column justify-center fill-height>
-        <v-layout row align-center justify-space-around>
-          <v-avatar color="red">
-            <span class="white--text headline">{{project.name.slice(0,2).toUpperCase()}}</span>
-          </v-avatar>
-          <h3 class="headline"><i>{{project.name}}</i></h3>
-        </v-layout>
-        <v-layout row align-center justify-center class="mt-4">
-          <div class="grey--text">ID: <i>{{project.id}}</i></div>
-        </v-layout>
-     </v-layout>
-    </v-card-title>
-    <v-card-actions>
-      <v-btn flat color="orange" :to="show(project.id)">Things</v-btn>
-      <v-btn flat color="red" @click="remove">Remove</v-btn>
-    </v-card-actions>
-  </v-card>
+  <v-list-tile avatar @click="show">
+    <v-list-tile-avatar color="red">
+      <span class="white--text headline">{{project.name.slice(0,2).toUpperCase()}}</span>
+    </v-list-tile-avatar>
+    <v-list-tile-content>
+      <v-list-tile-title><i>{{project.name}}</i></v-list-tile-title>
+      <v-list-tile-sub-title>ID: <i>{{project.id}}</i></v-list-tile-sub-title>
+    </v-list-tile-content>
+    <v-list-tile-action>
+      <v-btn flat color="red" icon @click="remove"><v-icon>delete</v-icon></v-btn>
+    </v-list-tile-action>
+  </v-list-tile>
 </template>
 
 <script>
 export default {
   methods: {
-    show (id) {
-      return `/projects/${id}/show`
+    show () {
+      this.$router.replace(`/projects/${this.project.id}/show`)
     },
     async remove () {
       try {

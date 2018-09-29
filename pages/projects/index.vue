@@ -1,7 +1,9 @@
 <template>
-  <v-layout column justify-space-around align-center>
+  <v-layout column justify-space-around align-space-around>
     <v-flex class="xs12 sm8 md6 pt-4">
-      <i-project v-for="(project, i) in projects" :key="i" :project="project"></i-project>
+      <v-list>
+        <i-project v-for="(project, i) in projects" :key="i" :project="project" class="ma-3"></i-project>
+      </v-list>
     </v-flex>
     <v-flex>
       <v-dialog v-model="dialog" persistent max-width="500px">

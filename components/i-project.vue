@@ -1,24 +1,21 @@
 <template>
-  <v-card>
-    <v-layout row align-center justify-center>
-      <v-flex>
-        <v-avatar color="red">
-          <span class="white--text headline">{{project.name.slice(0,2).toUpperCase()}}</span>
-        </v-avatar>
-      </v-flex>
-      <v-flex>
-        <v-card-title primary-title>
-          <div>
-            <span class="headline">Name: <i>{{project.name}}</i></span><br>
-            <span class="headline grey--text">ID: <i>{{project.id}}</i></span>
-          </div>
-        </v-card-title>
-      </v-flex>
-    </v-layout>
-    <v-divider light></v-divider>
+  <v-card class="ma-5">
+   <v-card-title primary-title>
+     <v-layout column justify-center fill-height>
+        <v-layout row align-center justify-space-around>
+          <v-avatar color="red">
+            <span class="white--text headline">{{project.name.slice(0,2).toUpperCase()}}</span>
+          </v-avatar>
+          <h3 class="headline"><i>{{project.name}}</i></h3>
+        </v-layout>
+        <v-layout row align-center justify-center class="mt-4">
+          <div class="grey--text">ID: <i>{{project.id}}</i></div>
+        </v-layout>
+     </v-layout>
+    </v-card-title>
     <v-card-actions>
-      <v-btn class="flat orange" :to="show(project.id)">Things</v-btn>
-      <v-btn class="flat red" @click="remove">Remove</v-btn>
+      <v-btn flat color="orange" :to="show(project.id)">Things</v-btn>
+      <v-btn flat color="red" @click="remove">Remove</v-btn>
     </v-card-actions>
   </v-card>
 </template>

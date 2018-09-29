@@ -120,8 +120,9 @@ export default {
           'kind': this.assetKind,
           'type': this.assetType
         })
+        this.$toast.global.iSuccess({message: 'Successfully builded'})
       } catch (e) {
-        console.log(e)
+        this.$toast.global.iError({message: `${e.response.data.code}: ${e.response.data.error.split('\n')[0]}`})
       }
       await this.refresh()
       this.assetDialog = false

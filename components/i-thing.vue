@@ -31,6 +31,9 @@
             <v-list-tile-title>{{name}} a.k.a {{detail.title}} is {{detail.kind}}</v-list-tile-title>
             <v-list-tile-sub-title>Type: {{detail.type}}</v-list-tile-sub-title>
           </v-list-tile-content>
+          <v-list-tile-action>
+            <v-btn flat icon @click="assetRemove(name)"><v-icon>delete</v-icon></v-btn>
+          </v-list-tile-action>
         </v-list-tile>
       </v-list>
       <v-divider></v-divider>
@@ -110,6 +113,16 @@ export default {
       } catch (e) {
         console.log(e)
       }
+    },
+
+    async assetRemove (assetName) {
+      try {
+        await this.$axios.$delete(`/pm/api/things/${this.thing.id}/assets/${assetName}`)
+        this.$toast.global.iSuccess({message: 'Successfully removed'})
+      } catch (e) {
+        this.$toast.global.iError({message: `${e.response.data.code}: ${e.response.data.error.split('\n')[0]}`})
+      }
+      await this.refresh()
     },
 
     async assetCreate () {

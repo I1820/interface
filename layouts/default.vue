@@ -41,7 +41,8 @@
               v-for="path in paths"
               :key="path.text"
               :disabled="path.disabled"
-              :nuxt="path.link"
+              :nuxt="true"
+              :to="path.link"
               >
               {{ path.text }}
             </v-breadcrumbs-item>
@@ -70,6 +71,9 @@
 export default {
   computed: {
     paths () {
+      if (this.$route.name === null) {
+        return []
+      }
       var paths = []
       for (var route of this.$route.name.split('-')) {
         if (route in this.$route.params) {

@@ -1,7 +1,8 @@
 <template>
-  <v-app dark>
+  <v-app light>
     <v-navigation-drawer
       v-model="drawer"
+      dark
       clipped
       fixed
       app
@@ -23,7 +24,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app fixed clipped-left>
+    <v-toolbar app fixed clipped-left dark>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>{{title}}</v-toolbar-title>
     </v-toolbar>
@@ -34,9 +35,9 @@
         </v-container>
       </v-content>
     </main>
-    <v-footer app height="auto">
-      <v-card class="flex" flat tile>
-        <v-card-title>
+    <v-footer app height="auto" dark>
+      <v-layout column>
+        <v-layout row justify-space-between>
           <v-breadcrumbs divider="/">
             <v-breadcrumbs-item
               v-for="path in paths"
@@ -54,16 +55,17 @@
             :key="link.name"
             :href="link.ref"
             class="mx-3"
+            color="orange"
             flat
             dark
             >
             {{link.name}}
           </v-btn>
-        </v-card-title>
-        <v-card-actions class="grey darken-3 justify-center">
+        </v-layout>
+        <v-layout row align-center justify-center>
           &copy;since 2016 — <strong>I1820</strong>
-        </v-card-actions>
-      </v-card>
+        </v-layout>
+      </v-layout>
     </v-footer>
   </v-app>
 </template>

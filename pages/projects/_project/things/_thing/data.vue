@@ -27,6 +27,9 @@
               </template>
             </v-data-table>
           </v-flex>
+          <v-flex v-if="info.type === 'number'" class="ma-5">
+            <highcharts :options="chart(name)"></highcharts>
+          </v-flex>
         </v-layout>
       </template>
     </v-flex>
@@ -37,6 +40,32 @@
 
 export default {
   methods: {
+    chart (assetName) {
+      if (!this.states[assetName] || this.states[assetName].length === 0) {
+        return {}
+      }
+      var data = []
+      for (var state of this.states[assetName]) {
+        data.push({
+          x: Date.parse(state.at),
+          y: state.value.number
+        })
+      }
+      return {
+        title: {
+          text: `${assetName}`
+        },
+        chart: {
+          type: 'area'
+        },
+        series: [{
+          data: data
+        }],
+        xAxis: {
+          type: 'datetime'
+        }
+      }
+    },
     async recently (assetName) {
       try {
         this.$set(this.states, assetName, await this.$axios.$get(`dm/api/projects/${this.projectID}/things/${this.thingID}/assets/${assetName}/queries/recently?limit=10`))

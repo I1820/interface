@@ -1,7 +1,7 @@
 <template>
   <v-layout column justify-center align-center>
     <v-flex>
-      <h2 class="white--text display-2">Data of {{thingID}} @ {{projectID}}</h2>
+      <h2 class="orange--text display-2">Data of {{thingID}} @ {{projectID}}</h2>
     </v-flex>
     <v-flex>
       <template v-for="(info, name) in assets">
@@ -27,10 +27,7 @@
               </template>
             </v-data-table>
           </v-flex>
-          <v-flex v-if="info.type === 'number'" class="ma-5">
-            <highcharts :options="chart(name)"></highcharts>
-          </v-flex>
-        </v-layout>
+       </v-layout>
       </template>
     </v-flex>
   </v-layout>
@@ -40,32 +37,6 @@
 
 export default {
   methods: {
-    chart (assetName) {
-      if (!this.states[assetName] || this.states[assetName].length === 0) {
-        return {}
-      }
-      var data = []
-      for (var state of this.states[assetName]) {
-        data.push({
-          x: Date.parse(state.at),
-          y: state.value.number
-        })
-      }
-      return {
-        title: {
-          text: `${assetName}`
-        },
-        chart: {
-          type: 'area'
-        },
-        series: [{
-          data: data
-        }],
-        xAxis: {
-          type: 'datetime'
-        }
-      }
-    },
     async recently (assetName) {
       try {
         this.$set(this.states, assetName, await this.$axios.$get(`dm/api/projects/${this.projectID}/things/${this.thingID}/assets/${assetName}/queries/recently?limit=10`))
@@ -95,7 +66,7 @@ export default {
   async asyncData ({app, params}) {
     var projectID = params.project
     var thingID = params.thing
-    var assets = []
+    var assets = {}
     try {
       assets = await app.$axios.$get(`pm/api/things/${thingID}/assets`)
       console.log(assets)

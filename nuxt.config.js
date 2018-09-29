@@ -36,6 +36,7 @@ module.exports = {
   plugins: [
     '~plugins/vuetify.js',
     '~plugins/moment.js',
+    '~plugins/chart.js',
     { src: '~plugins/toast.js', ssr: false }
   ],
   css: [

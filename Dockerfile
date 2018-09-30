@@ -1,10 +1,11 @@
 FROM node:alpine
 
 EXPOSE 1820
+LABEL maintainer="Parham Alvani <parham.alvani@gmail.com>"
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-COPY package.json package-lock.json /usr/src/app/
-ENV NODE_ENV=production
+COPY package.json /usr/src/app/
 RUN npm install
 
 COPY . /usr/src/app

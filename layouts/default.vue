@@ -62,7 +62,7 @@
             {{link.name}}
           </v-btn>
         </v-layout>
-        <v-layout row align-center justify-center>
+        <v-layout row align-center justify-center class="pb-3">
           &copy;since 2016 — <strong>I1820</strong>
         </v-layout>
       </v-layout>

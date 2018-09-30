@@ -179,10 +179,10 @@ export default {
               }
             })
           ) {
-            data.push({
-              x: Date.parse(state.at),
-              y: state.value.number
-            })
+            data.push([
+              Date.parse(state.at),
+              state.value.number
+            ])
           }
           series.push({
             name: asset,

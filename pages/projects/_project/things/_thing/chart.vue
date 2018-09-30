@@ -103,7 +103,17 @@ export default {
       for (const asset of this.selectedAssets) {
         try {
           const data = []
-          for (const state of await this.$axios.$get(`dm/api/projects/${this.projectID}/things/${this.thingID}/assets/${asset}/queries/recently?limit=10`)) {
+          for (const state of await this.$axios.$post(
+            `dm/api/projects/${this.projectID}/things/${this.thingID}/queries/fetch`,
+            {
+              type: 'number',
+              target: asset,
+              range: {
+                from: Date.parse(`${this.fromDate}T${this.fromTime}:00`).toISOString(),
+                to: Date.parse(`${this.toDate}T${this.toTime}:00`).toISOString()
+              }
+            })
+          ) {
             data.push({
               x: Date.parse(state.at),
               y: state.value.number
@@ -125,10 +135,10 @@ export default {
 
   data: () => ({
     selectedAssets: [],
-    fromDate: '',
-    fromTime: '00:00',
-    toDate: '',
-    toTime: '00:00',
+    fromDate: '', // YY-mm-dd
+    fromTime: '00:00', // hh-mm
+    toDate: '', // hh-mm
+    toTime: '00:00', // YY-mm-dd
 
     chart: {
       title: {

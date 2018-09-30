@@ -1,15 +1,13 @@
-FROM node:8-alpine
+FROM node:apline
 
-ENV HOST=0.0.0.0
-
-EXPOSE 3000
+EXPOSE 1820
 WORKDIR /usr/src/app
 
-COPY package.json yarn.lock /usr/src/app/
+COPY package.json package-lock.json /usr/src/app/
 ENV NODE_ENV=production
-RUN yarn install --frozen-lockfile --non-interactive
+RUN npm install
 
 COPY . /usr/src/app
-RUN yarn build
+RUN npm run build
 
-CMD ["yarn", "start"]
+CMD ["npm", "run", "start"]

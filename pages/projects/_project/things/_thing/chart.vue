@@ -84,7 +84,7 @@
         </v-container>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="blue darken-1" flat @click.native="isPfetch ? pfetch() : fetch">Fetch</v-btn>
+        <v-btn color="blue darken-1" flat @click.native="isPfetch ? pfetch() : fetch()">Fetch</v-btn>
       </v-card-actions>
     </v-card>
     <highcharts :options="chart"></highcharts>

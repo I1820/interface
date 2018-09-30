@@ -213,10 +213,20 @@ export default {
         text: `I1820`
       },
       chart: {
-        type: 'area'
+        type: 'area',
+        zoomType: 'xy'
+      },
+      tooltip: {
+        shared: true,
+        xDateFormat: '%A, %b %e, %H:%M:%S.%L'
+      },
+      yAxis: {
+        type: 'linear',
+        minorTickInterval: 'auto'
       },
       xAxis: {
-        type: 'datetime'
+        type: 'datetime',
+        tickPixelInterval: 1000
       }
     }
   }),

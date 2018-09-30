@@ -1,4 +1,4 @@
-FROM node:apline
+FROM node:alpine
 
 EXPOSE 1820
 WORKDIR /usr/src/app

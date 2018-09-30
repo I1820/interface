@@ -8,7 +8,7 @@
     </v-flex>
     <v-flex>
       <v-dialog v-model="dialog" persistent max-width="500px">
-        <v-btn slot="activator" flat icon dark><v-icon>add</v-icon></v-btn>
+        <v-btn slot="activator" flat icon light><v-icon>add</v-icon></v-btn>
         <v-card>
           <v-card-title>
             <span class="headline">Thing</span>
@@ -17,7 +17,7 @@
             <v-container grid-list-md>
               <v-layout column>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="name" label="Name" required></v-text-field>
+                  <v-text-field v-model="name" label="*Name" required></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>

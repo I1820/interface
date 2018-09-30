@@ -16,10 +16,10 @@
             <v-container grid-list-md>
               <v-layout column>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="name" label="Name" required></v-text-field>
+                  <v-text-field v-model="name" label="*Name" required></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="owner" label="Owner" hint="project owner email address (e.g. parham.alvani@gmail.com)" required></v-text-field>
+                  <v-text-field v-model="owner" label="*Owner" hint="project owner email address (e.g. parham.alvani@gmail.com)" required></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>

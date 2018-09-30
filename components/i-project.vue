@@ -17,7 +17,7 @@
 export default {
   methods: {
     show () {
-      this.$router.replace(`/projects/${this.project.id}/show`)
+      this.$router.replace(`/projects/${this.project.id}`)
     },
     async remove () {
       try {

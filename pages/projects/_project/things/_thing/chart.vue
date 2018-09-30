@@ -212,7 +212,11 @@ export default {
       title: {
         text: `I1820`
       },
+      navigator: {
+        adaptToUpdatedData: false
+      },
       chart: {
+        renderTo: 'container',
         type: 'area',
         zoomType: 'xy'
       },
@@ -226,7 +230,10 @@ export default {
       },
       xAxis: {
         type: 'datetime',
-        tickPixelInterval: 1000
+        tickPixelInterval: 1000,
+        scrollbar: {
+          enabled: true
+        }
       }
     }
   }),

@@ -3,7 +3,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'I1820',
+    title: 'FAN Co. IoT Platform',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -37,7 +37,6 @@ module.exports = {
     '~plugins/vuetify.js',
     '~plugins/moment.js',
     '~plugins/chart.js',
-    { src: '~/plugins/socketio.js', ssr: false },
     { src: '~plugins/toast.js', ssr: false }
   ],
   css: [

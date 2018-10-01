@@ -58,7 +58,7 @@
             white--text
             xs12
             >
-            &copy; 2018 <strong>I1820</strong> all rights reserved FAN Co.
+            &copy; 2018 all rights reserved <strong>FAN Co</strong>.
           </v-flex>
       </v-layout>
     </v-footer>

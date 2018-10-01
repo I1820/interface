@@ -1,27 +1,16 @@
 <template>
   <v-layout column justify-space-around align-center>
-    <v-flex xs12 sm8 md6>
-      <!-- TOOD fanco logo -->
-      <div class="text-xs-center">
-        <img src="/fanco.png" alt="Fanco" class="mb-5" style="width: 25%" />
-      </div>
-      <v-card>
-        <v-card-text>
-          <p>Welcome to the Fanavary Avid Net IoT Platform (I1820 IoT Platform)</p>
-          <p>
-            This IoT Platform tries to provide an easy way for you to manage you things and data.
-            We hope you enjoy this platform.
+    <v-flex align-center justify-center column>
+      <v-img src="/fanco.png" alt="Fanco" class="mb-5" max-height="250px" contain></v-img>
+      <div>
+          <p class="title">Welcome to the Avid Net Tech. IoT Platform </p>
+          <p class="body-2">
+            This IoT Platform aims to provide an easy way to manage your things and data.
+            We hope you enjoy it.
           </p>
-          <div class="orange--text">
-            <strong>Good Days Good Things</strong>
-          </div>
-          <div class="text-xs-right">
-            <em><small>&mdash; Fanco Development Team</small></em>
-          </div>
-        </v-card-text>
-      </v-card>
+      </div>
     </v-flex>
-    <v-flex>
+    <v-flex row justify-space-around row>
       <v-btn @click="checkPM" :color="isPMOnline ? 'green' : 'red'">check pm component</v-btn>
       <v-btn @click="checkDM" :color="isDMOnline ? 'green' : 'red'">check dm component</v-btn>
     </v-flex>

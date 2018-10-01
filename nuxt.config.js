@@ -37,6 +37,7 @@ module.exports = {
     '~plugins/vuetify.js',
     '~plugins/moment.js',
     '~plugins/chart.js',
+    { src: '~/plugins/socketio.js', ssr: false },
     { src: '~plugins/toast.js', ssr: false }
   ],
   css: [
@@ -51,6 +52,7 @@ module.exports = {
 
   proxy: {
     '/dm/': { target: process.env.DM_URL || 'http://127.0.0.1:1373', pathRewrite: {'^/dm/': ''} }, // sends requests with /dm/ to dm component
-    '/pm/': { target: process.env.PM_URL || 'http://127.0.0.1:1375', pathRewrite: {'^/pm/': ''} } // sends requests with /pm/ to pm component
+    '/pm/': { target: process.env.PM_URL || 'http://127.0.0.1:1375', pathRewrite: {'^/pm/': ''} }, // sends requests with /pm/ to pm component
+    '/trap/': { target: process.env.TRAP_URL || 'http://127.0.0.1:8085', pathRewrite: {'^/trap/': ''} } // sends requests with /trap/ to trap component
   }
 }

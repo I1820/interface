@@ -23,9 +23,9 @@
     "highcharts": "^6.1.4",
     "highcharts-vue": "^1.2.0",
     "nuxt": "latest",
+    "socket.io-client": "^2.1.1",
     "vue-moment": "^4.0.0",
     "vue-server-renderer": "latest",
-    "vue-socket.io": "^2.1.1-b",
     "vue-toasted": "^1.1.24",
     "vuetify": "latest"
   },

@@ -47,6 +47,7 @@
           color="white"
           flat
           round
+          depressed
           :href=link.ref
           >
           {{ link.name }}
@@ -99,7 +100,7 @@ export default {
         name: 'About us',
         ref: 'https://I1820.github.io'
       }, {
-        name: 'Platform 101 (an incomplete introduction to platforms)',
+        name: 'Platform 101',
         ref: 'https://I1820.github.io/Platform101'
       }
     ],
@@ -116,7 +117,7 @@ export default {
       }
 
     ],
-    title: 'I1820 IoT Platform'
+    title: 'FAN Co. IoT Platform'
   })
 }
 </script>

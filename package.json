@@ -1,7 +1,7 @@
 {
   "name": "@i1820/interface",
   "version": "1.0.0",
-  "description": "I1820 Web Interface",
+  "description": "I1820 IoT Platform Web Interface",
   "author": "Parham Alvani <parham.alvani@gmail.com>",
   "repository": "github:I1820/webpanel",
   "license": "GPL-3.0-or-later",

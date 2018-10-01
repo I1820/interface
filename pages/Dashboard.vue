@@ -1,21 +1,22 @@
 <template>
   <v-layout column justify-space-around align-center>
     <v-flex xs12 sm8 md6>
+      <!-- TOOD fanco logo -->
       <div class="text-xs-center">
-        <img src="/i1820.png" alt="I1820" class="mb-5" style="width: 50%" />
+        <img src="/fanco.png" alt="Fanco" class="mb-5" style="width: 25%" />
       </div>
       <v-card>
         <v-card-text>
-          <p>Welcome to the I1820 IoT Platform</p>
+          <p>Welcome to the Fanavary Avid Net IoT Platform (I1820 IoT Platform)</p>
           <p>
-            This platform is written by many people that many of them do not live with us right now.
-            I want to thank all of them and hope you enjoy this platform.
+            This IoT Platform tries to provide an easy way for you to manage you things and data.
+            We hope you enjoy this platform.
           </p>
           <div class="orange--text">
             <strong>Good Days Good Things</strong>
           </div>
           <div class="text-xs-right">
-            <em><small>&mdash; Parham Alvani</small></em>
+            <em><small>&mdash; Fanco Development Team</small></em>
           </div>
         </v-card-text>
       </v-card>

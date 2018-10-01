@@ -31,14 +31,24 @@
         </v-card>
       </v-dialog>
     </v-flex>
-    <v-flex>
+    <v-flex align-center>
       <v-btn color="blue darken-1" :disabled="isConnected" flat @click.native="connect">Connect</v-btn>
       <v-btn color="blue darken-1" :disabled="!isConnected" flat @click.native="disconnect">Disconnect</v-btn>
-      <v-list>
-        <v-list-tile v-for="(state, i) in states" :key="i">
-          {{state}}
-        </v-list-tile>
-      </v-list>
+      <v-data-table
+        :headers="headers"
+        :items="states"
+        :loading="isConnected"
+        class="elevation-1"
+        hide-actions
+        >
+        <v-progress-linear slot="progress" color="blue" indeterminate></v-progress-linear>
+        <template slot="items" slot-scope="props">
+          <td>{{ props.item.asset }}</td>
+          <td class="text-xs-right">{{ props.item.thing_id }}</td>
+          <td class="text-xs-right">{{ props.item.at | moment("DD-MM-YYYY hh:mm:ss") }}</td>
+          <td class="text-xs-right">{{ props.item.raw }}</td>
+        </template>
+      </v-data-table>
     </v-flex>
   </v-layout>
 </template>
@@ -109,6 +119,22 @@ export default {
     isConnected: false,
     states: [],
     socket: null,
+    headers: [
+      {
+        text: 'Asset',
+        value: 'asset'
+      },
+      {
+        text: 'ThingID',
+        value: 'thing_id'
+      }, {
+        text: 'At',
+        value: 'at'
+      }, {
+        text: 'Value',
+        value: 'raw'
+      }
+    ],
 
     dialog: false, // create thing dialog visibility
 

@@ -36,35 +36,29 @@
       </v-content>
     </main>
     <v-footer app height="auto" dark>
-      <v-layout column>
-        <v-layout row justify-space-between>
-          <v-breadcrumbs divider="/">
-            <v-breadcrumbs-item
-              v-for="path in paths"
-              :key="path.text"
-              :disabled="path.disabled"
-              :nuxt="true"
-              :to="path.link"
-              >
-              {{ path.text }}
-            </v-breadcrumbs-item>
-          </v-breadcrumbs>
-          <v-spacer></v-spacer>
-          <v-btn
-            v-for="link in links"
-            :key="link.name"
-            :href="link.ref"
-            class="mx-3"
-            color="orange"
-            flat
-            dark
+      <v-layout
+        justify-center
+        row
+        wrap
+        >
+        <v-btn
+          v-for="link in links"
+          :key="link.name"
+          color="white"
+          flat
+          round
+          :href=link.ref
+          >
+          {{ link.name }}
+        </v-btn>
+          <v-flex
+            py-3
+            text-xs-center
+            white--text
+            xs12
             >
-            {{link.name}}
-          </v-btn>
-        </v-layout>
-        <v-layout row align-center justify-center class="pb-3">
-          &copy;since 2016 — <strong>I1820</strong>
-        </v-layout>
+            &copy; since 2016 — <strong>I1820</strong>
+          </v-flex>
       </v-layout>
     </v-footer>
   </v-app>
@@ -101,6 +95,12 @@ export default {
       {
         name: 'Github',
         ref: 'https://github.com/I1820'
+      }, {
+        name: 'About us',
+        ref: 'https://I1820.github.io'
+      }, {
+        name: 'Platform 101 (an incomplete introduction to platforms)',
+        ref: 'https://I1820.github.io/Platform101'
       }
     ],
     items: [

@@ -73,7 +73,7 @@ export default {
 
     connect () {
       this.isConnected = true
-      const socket = io(':8085/I1820')
+      const socket = io('/I1820')
       socket.on('connect', () => {
         this.$toast.global.iSuccess({message: 'We are coming with data to you'})
         this.socket = socket
@@ -81,6 +81,7 @@ export default {
       socket.on('connect_error', (error) => {
         this.$toast.global.iError({message: `connection failure: ${error}`})
         this.isConnected = false
+        socket.disconnect()
       })
       socket.on(`projects/${this.projectID}`, (message) => {
         this.states.push(message)

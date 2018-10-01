@@ -31,18 +31,52 @@
         </v-card>
       </v-dialog>
     </v-flex>
+    <v-flex>
+      <v-btn color="blue darken-1" :disabled="isConnected" flat @click.native="connect">Connect</v-btn>
+      <v-btn color="blue darken-1" :disabled="!isConnected" flat @click.native="disconnect">Disconnect</v-btn>
+      <v-list>
+        <v-list-tile v-for="(state, i) in states" :key="i">
+          {{state}}
+        </v-list-tile>
+      </v-list>
+    </v-flex>
   </v-layout>
 </template>
 
 
 <script>
 import IThing from '~/components/i-thing.vue'
+import io from 'socket.io-client'
+
 export default {
   components: {
     'i-thing': IThing
   },
 
   methods: {
+    disconnect () {
+      if (this.socket != null) {
+        this.socket.disconnect()
+        this.isConnected = false
+      }
+    },
+
+    connect () {
+      this.isConnected = true
+      const socket = io(':8085/I1820')
+      socket.on('connect', () => {
+        this.$toast.global.iSuccess({message: 'We are coming with data to you'})
+        this.socket = socket
+      })
+      socket.on('connect_error', (error) => {
+        this.$toast.global.iError({message: `connection failure: ${error}`})
+        this.isConnected = false
+      })
+      socket.on(`projects/${this.projectID}`, (message) => {
+        this.states.push(message)
+      })
+    },
+
     async refresh () {
       try {
         this.things = await this.$axios.$get(`/pm/api/projects/${this.projectID}/things`)
@@ -51,21 +85,31 @@ export default {
         console.log(e)
       }
     },
+
     async create () {
       try {
         await this.$axios.$post(`/pm/api/projects/${this.projectID}/things`, {
           'name': this.name,
           'model': 'default'
         })
+        this.$toast.global.iSuccess({message: 'Successfully builded'})
       } catch (e) {
-        console.log(e)
+        this.$toast.global.iError({message: `${e.response.data.code}: ${e.response.data.error.split('\n')[0]}`})
       }
       await this.refresh()
       this.dialog = false
     }
   },
 
+  beforeDestroy () {
+    this.disconnect()
+  },
+
   data: () => ({
+    isConnected: false,
+    states: [],
+    socket: null,
+
     dialog: false, // create thing dialog visibility
 
     name: '' // name field in create thing

@@ -65,27 +65,11 @@ export default {
 
   methods: {
     disconnect () {
-      if (this.socket != null) {
-        this.socket.disconnect()
-        this.isConnected = false
-      }
+      this.socket.disconnect()
     },
 
     connect () {
-      this.isConnected = true
-      const socket = io('/I1820')
-      socket.on('connect', () => {
-        this.$toast.global.iSuccess({message: 'We are coming with data to you'})
-        this.socket = socket
-      })
-      socket.on('connect_error', (error) => {
-        this.$toast.global.iError({message: `connection failure: ${error}`})
-        this.isConnected = false
-        socket.disconnect()
-      })
-      socket.on(`projects/${this.projectID}`, (message) => {
-        this.states.push(message)
-      })
+      this.socket.open()
     },
 
     async refresh () {
@@ -112,14 +96,39 @@ export default {
     }
   },
 
+  computed: {
+    isConnected: function () {
+      if (this.socket != null) { // before component is mounted
+        return this.socket.connected
+      }
+      return false
+    }
+  },
+
   beforeDestroy () {
-    this.disconnect()
+    this.socket.disconnect()
+  },
+
+  mounted () {
+    // create socket.io instance when component is mounted
+    this.socket = io('/I1820', { autoConnect: false })
+
+    // register socket.io callbacks
+    this.socket.on('connect', () => {
+      this.$toast.global.iSuccess({message: 'We are coming with data to you'})
+    })
+    this.socket.on('connect_error', (error) => {
+      this.$toast.global.iError({message: `connection failure: ${error}`})
+      this.socket.disconnect()
+    })
+    this.socket.on(`projects/${this.projectID}`, (message) => {
+      this.states.push(message)
+    })
   },
 
   data: () => ({
-    isConnected: false,
-    states: [],
     socket: null,
+    states: [],
     headers: [
       {
         text: 'Asset',

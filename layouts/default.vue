@@ -114,8 +114,12 @@ export default {
         icon: 'mood',
         title: 'Projects',
         link: '/projects'
+      },
+      {
+        icon: 'device_hub',
+        title: 'Vernemq',
+        href: '/status'
       }
-
     ],
     title: 'FAN Co. IoT Platform'
   })

@@ -8,11 +8,11 @@
       <v-list-tile-sub-title>ID: <i>{{project.id}}</i></v-list-tile-sub-title>
     </v-list-tile-content>
     <v-list-tile-action>
-      <v-layout>
+      <v-flex row justify-space-between>
         <v-btn icon ripple @click="show"><v-icon color="grey">info</v-icon></v-btn>
         <v-btn icon ripple @click="remove"><v-icon color="grey">delete</v-icon></v-btn>
         <v-btn icon ripple @click="scenario"><v-icon color="grey">note</v-icon></v-btn>
-      </v-layout>
+      </v-flex>
     </v-list-tile-action>
   </v-list-tile>
 </template>

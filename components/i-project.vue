@@ -1,5 +1,5 @@
 <template>
-  <v-list-tile avatar @click="show">
+  <v-list-tile avatar>
     <v-list-tile-avatar color="red">
       <span class="white--text headline">{{project.name.slice(0,2).toUpperCase()}}</span>
     </v-list-tile-avatar>
@@ -8,7 +8,11 @@
       <v-list-tile-sub-title>ID: <i>{{project.id}}</i></v-list-tile-sub-title>
     </v-list-tile-content>
     <v-list-tile-action>
-      <v-btn flat color="red" icon @click="remove"><v-icon>delete</v-icon></v-btn>
+      <v-layout>
+        <v-btn icon ripple @click="show"><v-icon color="grey">info</v-icon></v-btn>
+        <v-btn icon ripple @click="remove"><v-icon color="grey">delete</v-icon></v-btn>
+        <v-btn icon ripple @click="scenario"><v-icon color="grey">note</v-icon></v-btn>
+      </v-layout>
     </v-list-tile-action>
   </v-list-tile>
 </template>
@@ -16,6 +20,9 @@
 <script>
 export default {
   methods: {
+    scenario () {
+      this.$router.replace(`/projects/${this.project.id}/scenario`)
+    },
     show () {
       this.$router.replace(`/projects/${this.project.id}`)
     },

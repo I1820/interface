@@ -1,11 +1,11 @@
 <template>
   <v-layout column justify-space-around align-space-around>
     <v-flex class="xs12 sm8 md6 pt-4">
-      <v-list>
+      <v-list> <!-- project listing section -->
         <i-project v-for="(project, i) in projects" :key="i" :project="project" class="ma-3"></i-project>
       </v-list>
     </v-flex>
-    <v-flex>
+    <v-flex> <!-- create project dialog -->
       <v-dialog v-model="dialog" persistent max-width="500px">
         <v-btn slot="activator" flat icon><v-icon>add</v-icon></v-btn>
         <v-card>

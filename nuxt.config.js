@@ -22,7 +22,6 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor: ['vuetify']
   },
   /*
   ** Nuxt modules configuration

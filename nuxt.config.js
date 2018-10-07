@@ -1,7 +1,8 @@
+
 module.exports = {
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: 'FAN Co. IoT Platform',
     meta: [
@@ -15,23 +16,24 @@ module.exports = {
     ]
   },
   /*
-  ** Customize the progress-bar color
-  */
+   ** Customize the progress-bar color
+   */
   loading: { color: '#3B8070' },
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
+    plugins: []
   },
   /*
-  ** Nuxt modules configuration
-  */
+   ** Nuxt modules configuration
+   */
   modules: [
     '@nuxtjs/axios'
   ],
   /*
-  ** Plugin configuration
-  */
+   ** Plugin configuration
+   */
   plugins: [
     '~plugins/vuetify.js',
     '~plugins/moment.js',

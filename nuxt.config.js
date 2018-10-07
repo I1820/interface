@@ -38,7 +38,8 @@ module.exports = {
     '~plugins/vuetify.js',
     '~plugins/moment.js',
     '~plugins/chart.js',
-    { src: '~plugins/toast.js', ssr: false }
+    { src: '~plugins/toast.js', ssr: false },
+    { src: '~plugins/editor.js', ssr: false }
   ],
   css: [
     { src: '~assets/style/app.styl', lang: 'styl' }

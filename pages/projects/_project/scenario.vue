@@ -1,5 +1,5 @@
 <template>
-  <ace-editor v-model="content" lang="python" theme="tomorrow_night" height="500" @init="initEditor"></ace-editor>
+  <ace-editor :value="content" lang="python" theme="tomorrow_night" height="500" @init="initEditor"></ace-editor>
 </template>
 
 <script>

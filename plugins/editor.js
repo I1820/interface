@@ -12,12 +12,6 @@
  */
 
 import Vue from 'vue'
-import Editor from 'vue2-ace-editor'
+import VuacePlugin from 'vuace'
 
-const EditorPlugin = {
-  install (Vue, options) {
-    Vue.component('ace-editor', Editor)
-  }
-}
-
-Vue.use(EditorPlugin)
+Vue.use(VuacePlugin)

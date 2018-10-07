@@ -38,6 +38,7 @@
 
 <script>
 import IProject from '~/components/i-project.vue'
+
 export default {
   components: {
     'i-project': IProject

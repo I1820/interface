@@ -2,11 +2,11 @@
   <v-layout column justify-center align-center>
     <v-flex>
       <h2 class="orange--text display-2">Things @ {{projectID}}</h2>
-    </v-flex>
+    </v-flex> <!-- thing listing section -->
     <v-flex class="xs12 sm8 md6 pt-4">
       <i-thing v-for="(thing, i) in things" :key="i" :thing="thing" :project="projectID"></i-thing>
     </v-flex>
-    <v-flex>
+    <v-flex> <!-- create thing dialog -->
       <v-dialog v-model="dialog" persistent max-width="500px">
         <v-btn slot="activator" flat icon light><v-icon>add</v-icon></v-btn>
         <v-card>
@@ -31,7 +31,7 @@
         </v-card>
       </v-dialog>
     </v-flex>
-    <v-flex align-center>
+    <v-flex align-center> <!-- realtime socket section  -->
       <v-btn color="blue darken-1" :disabled="isConnected" flat @click.native="connect">Connect</v-btn>
       <v-btn color="blue darken-1" :disabled="!isConnected" flat @click.native="disconnect">Disconnect</v-btn>
       <v-data-table

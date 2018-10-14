@@ -38,6 +38,7 @@ module.exports = {
     '~plugins/vuetify.js',
     '~plugins/moment.js',
     '~plugins/chart.js',
+    { src: '~plugins/map.js', ssr: false },
     { src: '~plugins/toast.js', ssr: false },
     { src: '~plugins/editor.js', ssr: false }
   ],

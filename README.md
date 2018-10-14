@@ -7,3 +7,12 @@
 
 Web Interface of I1820 Platform. In the first steps, it just shows projects, codecs,
 and data but it will evolve to supports users and, etc.
+
+We want to switch interface to Angular as soon as possible.
+
+## Components
+I think these component can help us in the way of development:
+
+- [json formatter](https://github.com/mohsen1/json-formatter)
+- [ui-select](https://angular-ui.github.io/ui-select/)
+- [Angular Material](https://material.angular.io/)

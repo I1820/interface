@@ -14,5 +14,4 @@ We want to switch interface to Angular as soon as possible.
 I think these component can help us in the way of development:
 
 - [json formatter](https://github.com/mohsen1/json-formatter)
-- [ui-select](https://angular-ui.github.io/ui-select/)
 - [Angular Material](https://material.angular.io/)

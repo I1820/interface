@@ -119,6 +119,11 @@ export default {
         icon: 'device_hub',
         title: 'Vernemq',
         href: '/status'
+      },
+      {
+        icon: 'exit_to_app',
+        title: 'Signout',
+        link: '/logout'
       }
     ],
     title: 'FAN Co. IoT Platform'

@@ -29,7 +29,8 @@ module.exports = {
    ** Nuxt modules configuration
    */
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
   /*
    ** Plugin configuration
@@ -57,5 +58,23 @@ module.exports = {
     '/pm/': { target: process.env.PM_URL || 'http://127.0.0.1:1375', pathRewrite: {'^/pm/': ''} }, // sends requests with /pm/ to pm component
     '/socket.io': { target: process.env.TRAP_URL || 'http://127.0.0.1:8085', ws: true, changeOrigin: true }, // sends requests with /trap/ to trap component
     '/status': { target: process.env.VERNEMQ_URL || 'http://127.0.0.1:8888', changeOrigin: true } // sends requests with /status to vernemq api
+  },
+
+  router: {
+    middleware: ['auth']
+  },
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: '/login',
+      home: '/dashboard'
+    },
+    strategies: {
+      auth0: {
+        domain: 'avidnet.auth0.com',
+        client_id: 'YRucmWOTGzdWOx42GHBmfZsUAVcoVOBr'
+      }
+    }
   }
 }

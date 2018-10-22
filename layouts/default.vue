@@ -27,6 +27,10 @@
     <v-toolbar app fixed clipped-left dark>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>{{title}}</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-avatar color="grey lighten-4">
+        <img :src="this.$auth.user.picture" alt="avatar">
+      </v-avatar>
     </v-toolbar>
     <main>
       <v-content>

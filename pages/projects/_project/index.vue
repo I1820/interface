@@ -2,8 +2,11 @@
   <v-layout column justify-center align-center>
     <v-flex>
       <h2 class="orange--text display-2">Things @ {{projectID}}</h2>
-    </v-flex> <!-- thing listing section -->
-    <v-flex class="xs12 sm8 md6 pt-4">
+    </v-flex>
+    <v-flex>
+      Runner status: {{ project.inspects[0].State.Status }}
+    </v-flex>
+    <v-flex class="xs12 sm8 md6 pt-4"> <!-- thing listing section -->
       <i-thing v-for="(thing, i) in things" :key="i" :thing="thing" :project="projectID"></i-thing>
     </v-flex>
     <v-flex> <!-- create thing dialog -->
@@ -152,6 +155,7 @@ export default {
   }),
 
   async asyncData ({app, params}) {
+    let project = {}
     let projectID = params.project
     let things = []
     try {
@@ -160,7 +164,21 @@ export default {
     } catch (e) {
       console.log(e)
     }
-    return {things, projectID} // returns object contains required data
+    try {
+      project = await app.$axios.$get(`/pm/api/projects/${projectID}`)
+    } catch (e) {
+      project = {
+        inspects: [
+          {
+            State: {Status: 'internal error'}
+          },
+          {
+            State: {Status: 'internal error'}
+          }
+        ]
+      }
+    }
+    return {things, projectID, project} // returns object contains required data
   }
 }
 </script>

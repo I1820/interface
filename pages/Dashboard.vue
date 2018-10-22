@@ -3,7 +3,7 @@
     <v-flex align-center justify-center column>
       <v-img src="/fanco.png" alt="Fanco" class="mb-5" max-height="250px" contain></v-img>
       <div>
-          <p class="title">Welcome to the Avid Net Tech. IoT Platform </p>
+        <p class="title">Hi {{$auth.user.nickname}}, Welcome to the Avid Net Tech. IoT Platform</p>
           <p class="body-2">
             This IoT Platform aims to provide an easy way to manage your things and data.
             We hope you enjoy it.

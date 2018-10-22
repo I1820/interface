@@ -9,3 +9,5 @@ Management Web Interface of I1820 Platform. In the first steps, it just shows pr
 and data but it will evolve to supports users and, etc.
 
 You can use this interface to check status of the core components and monitor the platform state.
+Management interface has its authentication mechanism based on Auth0 so you must have a valid user on Auth0
+to use this interface. By this way admin users and their information is secure on Auth0 platform.

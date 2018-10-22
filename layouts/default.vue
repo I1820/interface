@@ -28,7 +28,7 @@
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>{{title}}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-avatar color="grey lighten-4">
+      <v-avatar v-if="this.$auth.loggedIn" color="grey lighten-4">
         <img :src="this.$auth.user.picture" alt="avatar">
       </v-avatar>
     </v-toolbar>

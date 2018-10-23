@@ -6,7 +6,7 @@
 ## Introduction
 
 Management Web Interface of I1820 Platform. In the first steps, it just shows projects, codecs,
-and data but it will evolve to supports users and, etc.
+users, and data.
 
 You can use this interface to check status of the core components and monitor the platform state.
 Management interface has its authentication mechanism based on Auth0 so you must have a valid user on Auth0

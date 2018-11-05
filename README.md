@@ -1,7 +1,7 @@
 # Web Panel
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
-[![Travis branch](https://img.shields.io/travis/com/I1820/interface/master.svg?style=flat-square)](https://travis-ci.com/I1820/interface)
+[![Travis branch](https://img.shields.io/travis/com/I1820/mpanel/master.svg?style=flat-square)](https://travis-ci.com/I1820/mpanel)
 
 ## Introduction
 

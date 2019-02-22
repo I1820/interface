@@ -73,7 +73,7 @@ module.exports = {
     strategies: {
       auth0: {
         domain: 'i1820.auth0.com',
-        client_id: 'YRucmWOTGzdWOx42GHBmfZsUAVcoVOBr'
+        client_id: 'RkwJ4xx41OuLseag1LuJPvMHMjgOCwwb'
       }
     }
   }

@@ -72,7 +72,7 @@ module.exports = {
     },
     strategies: {
       auth0: {
-        domain: 'avidnet.auth0.com',
+        domain: 'i1820.auth0.com',
         client_id: 'YRucmWOTGzdWOx42GHBmfZsUAVcoVOBr'
       }
     }

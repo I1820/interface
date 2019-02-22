@@ -2,6 +2,7 @@
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
 [![Travis branch](https://img.shields.io/travis/com/I1820/mpanel/master.svg?style=flat-square)](https://travis-ci.com/I1820/mpanel)
+[![auth0](https://cdn.auth0.com/oss/badges/a0-badge-dark.png)](https://auth0.com/?utm_source=oss&utm_medium=gp&utm_campaign=oss)
 
 ## Introduction
 
